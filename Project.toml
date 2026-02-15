@@ -1,0 +1,13 @@
+name = "SLBL"
+uuid = "0ddf6e45-5832-4333-aacf-36424d6aa480"
+authors = ["madmax"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.10.10"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
