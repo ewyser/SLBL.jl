@@ -1,6 +1,23 @@
 
+export AbstractFormat, AbstractSource, AbstractInstruction, AbstractGrid, AbstractGeometry
+
+#====================================================================================================================================
+# Data format abstraction(s)
+====================================================================================================================================#
+abstract type AbstractFormat end
+
+    abstract type AbstractGrid <: AbstractFormat end 
+
+    abstract type AbstractGeometry <: AbstractFormat end
+
+#====================================================================================================================================
+# Data source abstraction(s)
+====================================================================================================================================#
+abstract type AbstractSource end
+
+
+#====================================================================================================================================
+# Instruction abstraction(s)
+====================================================================================================================================#
 abstract type AbstractInstruction end
 
-abstract type AbstractGrid end
-
-abstract type AbstractGeometry end
