@@ -1,4 +1,4 @@
-function import_data(data::Data{S,F}; warp::Any=nothing) where {S <: File, F <: Grid}
+function import_data(data::Data{S,F}; warp::Any=nothing) where {S <: File, F <: RasterGeometry}
     proj = get_proj(data)
     if isnothing(warp)
         data = get_data(data)
@@ -14,6 +14,6 @@ function import_data(data::Data{S,F}; warp::Any=nothing) where {S <: File, F <: 
     )
 end
 
-function import_data(data::Data{S,F}; warp::Any=nothing) where {S <: File, F <: Polygon}
+function import_data(data::Data{S,F}; warp::Any=nothing) where {S <: File, F <: VectorGeometry}
     return nothing
 end

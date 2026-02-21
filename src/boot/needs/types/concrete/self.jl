@@ -1,17 +1,11 @@
 export Self
 
-Base.@kwdef mutable struct Path
+Base.@kwdef mutable struct System
 	root::String = " "
 	out ::String = " "
 	test::String = " "
 	lib ::Dict   = Dict()
     ncell::Int   = 0
-end
-Base.@kwdef mutable struct Execution
-    functional::Vector{String} = ["Available execution platform(s):"]
-    prompt::Bool = false
-	cpu::Dict = Dict()
-	gpu::Dict = Dict()
 end
 Base.@kwdef mutable struct UI
 	ui    ::Bool       = true
@@ -20,7 +14,7 @@ Base.@kwdef mutable struct UI
     logs  ::NamedTuple = (; log_info = true, log_warn = true, log_error = true) 
 end
 Base.@kwdef mutable struct Self
-	sys ::Path
+	sys ::System
 	ui  ::UI
-	bckd::Execution
+	bckd::UnifiedBackend.Backend
 end

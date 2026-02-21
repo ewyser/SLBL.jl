@@ -1,4 +1,4 @@
-function warp_data(data::Data{S,F},extent::Dict) where {S <: File, F <: Grid}
+function warp_data(data::Data{S,F},extent::Dict) where {S <: File, F <: RasterGeometry}
     instr = ["-te","$(extent["LL"][1])","$(extent["LL"][2])","$(extent["UR"][1])", "$(extent["UR"][2])","-tr","$(extent["res"][1])","$(extent["res"][2])","-r","max"]
     # warping
     warped_data = nothing

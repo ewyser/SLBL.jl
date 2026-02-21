@@ -1,4 +1,4 @@
-function get_proj(data::Data{S,F}) where {S <: File, F <: Grid}
+function get_proj(data::Data{S,F}) where {S <: File, F <: RasterGeometry}
     # import gridded data
     ds    = gdal.read(data.location.path)
     # data processing
