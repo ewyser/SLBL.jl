@@ -1,3 +1,3 @@
-function get_proj(data::Data{S,F}) where {S <: File, F <: Polygon}
+function get_proj(data::Data{S,F}) where {S <: File, F <: VectorGeometry}
     return nothing
 end

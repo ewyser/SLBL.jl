@@ -6,8 +6,6 @@ export AbstractFormat, AbstractSource, AbstractInstruction, AbstractGrid, Abstra
 ====================================================================================================================================#
 abstract type AbstractFormat end
 
-    abstract type AbstractGrid <: AbstractFormat end 
-
     abstract type AbstractGeometry <: AbstractFormat end
 
 #====================================================================================================================================

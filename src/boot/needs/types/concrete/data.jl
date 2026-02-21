@@ -13,11 +13,11 @@ struct URL <: AbstractSource
 
 end
 
-struct Grid <: AbstractGrid
+struct RasterGeometry <: AbstractGeometry
     ext::String
 end
 
-struct Polygon <: AbstractGeometry
+struct VectorGeometry <: AbstractGeometry
     ext::String
 end
 
@@ -27,7 +27,7 @@ Base.@kwdef mutable struct Data{S<:AbstractSource, F<:AbstractFormat}
     format    ::Union{F, Nothing} = nothing
     attribute ::Vector{String}    = String[]
     warp      ::Dict{String,Any}  = Dict{String,Any}()
-    id        ::String            = ""
+    label     ::String            = ""
 end
 
 Base.@kwdef mutable struct DataSet{S<:AbstractSource}
