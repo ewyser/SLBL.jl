@@ -23,5 +23,5 @@ info = Self(
 ) 
 
 # include .jl files
-lists = ["io",]
+lists = ["io","core",]
 @info join(superInc(lists; root=SRC, lib=info.sys.lib),"\n")

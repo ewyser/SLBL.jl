@@ -1,16 +1,15 @@
 export new_source
 """
-    new_source(path::String; type::Symbol=:file)
+    new_source(input::Any)
 
-Creates an `AbstractSource` object from a given path. 
-Currently supports `:file` type, but can be extended for other source types.
+Creates an `AbstractSource` object from a given input, which can be a file path, URL, or other supported source type.
+Currently, supports local files and URLs (http/https). Can be extended for other source types.
 
 # Arguments
-- `path::String`: The path to the data source (e.g., file path).
-- `type::Symbol`: The type of source to create (`:file`, `:database`, etc.).
+- `input::Any`: The input to create the source from (typically a String path or URL).
 
 # Returns
-- `AbstractSource`: An instance of the appropriate source type.
+- `AbstractSource`: An instance of the appropriate source type (e.g., `File`).
 """
 function new_source(input::Any)
     function isurl(input::String)

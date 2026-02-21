@@ -1,3 +1,23 @@
+"""
+    warp_data(data::Data{S,F}, extent::Dict) where {S <: File, F <: RasterGeometry}
+
+Warps (reprojects and resamples) raster data to a new extent and resolution using GDAL.
+
+# Arguments
+- `data::Data{S,F}`: The raster data object to warp (must be a `File` and `RasterGeometry`).
+- `extent::Dict`: Dictionary specifying the new extent and resolution (keys: "LL", "UR", "res").
+
+# Returns
+- `Array`: The warped raster data as a Julia array.
+- `Dict`: The updated projection and georeferencing information.
+
+# Example
+```julia
+data = new_data(File("/path/to/file.tif"))
+extent = Dict("LL" => [xmin, ymin], "UR" => [xmax, ymax], "res" => [dx, dy])
+warped, proj = warp_data(data, extent)
+```
+"""
 function warp_data(data::Data{S,F},extent::Dict) where {S <: File, F <: RasterGeometry}
     instr = ["-te","$(extent["LL"][1])","$(extent["LL"][2])","$(extent["UR"][1])", "$(extent["UR"][2])","-tr","$(extent["res"][1])","$(extent["res"][2])","-r","max"]
     # warping

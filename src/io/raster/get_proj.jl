@@ -1,3 +1,20 @@
+"""
+    get_proj(data::Data{S,F}) where {S <: File, F <: RasterGeometry}
+
+Extracts georeferencing and projection information from a raster `Data` object.
+
+# Arguments
+- `data::Data{S,F}`: The raster data object (must be a `File` and `RasterGeometry`).
+
+# Returns
+- `Dict`: A dictionary containing projection info, grid size, resolution, coordinate vectors, and PROJ4 string.
+
+# Example
+```julia
+data = new_data(File("/path/to/file.tif"))
+proj = get_proj(data)
+```
+"""
 function get_proj(data::Data{S,F}) where {S <: File, F <: RasterGeometry}
     # import gridded data
     ds    = gdal.read(data.location.path)
