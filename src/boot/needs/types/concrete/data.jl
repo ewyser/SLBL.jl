@@ -30,10 +30,10 @@ Base.@kwdef mutable struct Data{S<:AbstractSource, F<:AbstractFormat}
     id        ::String            = ""
 end
 
-Base.@kwdef mutable struct DataSet{S<:AbstractSource} <: AbstractDataSet
+Base.@kwdef mutable struct DataSet{S<:AbstractSource}
     altimeteric  ::Union{Data{S, <:AbstractFormat}, Nothing} = nothing
     landslide    ::Union{Data{S, <:AbstractFormat}, Nothing} = nothing
 end
-function DataSet{S}(from::Dict, extent::Dict) where {S<:FileSource}
+function DataSet{S}(from::Dict, extent::Dict) where {S<:File}
     return nothing
 end
